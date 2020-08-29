@@ -1,0 +1,8 @@
+### Parameter file for the BITTPSOLVER
+# name        switch         type     values                                                [conditions (using R syntax)]
+distrib     "--distrib "       c      ("0 0 1", "1 0.5 0.2", "2 3 1.5", "2 1.5 3")
+eta         "--eta "           i      (1, 200)
+rho         "--rho "           i      (1, 100)
+gamma       "--gamma  "        i      (1, 200)
+beta        "--beta  "         c      (-987654321, 0, 0.000001, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10, 100)
+lambda      "--lambda "        r      (0.0, 0.5)

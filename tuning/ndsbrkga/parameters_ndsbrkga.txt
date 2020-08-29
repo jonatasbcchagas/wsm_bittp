@@ -1,0 +1,10 @@
+### Parameter file for the NDS-BRKGA
+# name        switch          type     values                                                [conditions (using R syntax)]
+N            "--N "             i      (100, 5000)
+Ne           "--N_e "           r      (0.1, 0.9)
+Nm           "--N_m "           r      (0, 1)
+rhoe         "--rho_e  "        r      (0.5, 1)
+alpha        "--alpha  "        r      (0, 1)
+omega        "--omega "         i      (1, 100)
+tspt         "--tsp_t "         i      (60, 300)
+delta        "--kp_delta "      i      (0, 50000)

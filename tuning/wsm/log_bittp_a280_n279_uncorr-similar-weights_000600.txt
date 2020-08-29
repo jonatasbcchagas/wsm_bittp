@@ -1,0 +1,412 @@
+#------------------------------------------------------------------------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 3.4.1.9fcaeaf
+# Copyright (C) 2010-2020
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste  
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: /home/es91661/R/x86_64-pc-linux-gnu-library/3.6/irace
+# called with: 
+Warning: A default scenario file './scenario.txt' has been found and will be read
+## irace scenario:
+scenarioFile = "./scenario.txt"
+parameterFile = "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/parameters_bittp_solver.txt"
+execDir = "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights"
+logFile = "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/log_bittp_a280_n279_uncorr-similar-weights_000600.Rdata"
+recoveryFile = NULL
+instances = c("/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_01.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_02.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_03.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_04.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_05.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_06.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_07.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_08.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_09.ttp", "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances/a280_n279_uncorr-similar-weights_10.ttp")
+initConfigurations = NULL
+trainInstancesDir = "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/train_instances"
+trainInstancesFile = ""
+configurationsFile = ""
+forbiddenExps = NULL = expression()
+forbiddenFile = ""
+targetRunner = "/storage1/dados/es91661/jonin/bittp_solver/tuning_a280_n279_uncorr-similar-weights/target_runner_bittp_solver_000600.py"
+targetRunnerRetries = 0
+targetRunnerData = ""
+targetRunnerParallel = NULL
+targetEvaluator = NULL
+maxExperiments = 1000
+maxTime = 0
+budgetEstimation = 0.02
+digits = 2
+debugLevel = 1
+nbIterations = 0
+nbExperimentsPerIteration = 0
+sampleInstances = TRUE
+testType = "friedman"
+firstTest = 5
+eachTest = 1
+minNbSurvival = 0
+nbConfigurations = 0
+mu = 5
+confidence = 0.95
+deterministic = FALSE
+seed = 11235813
+parallel = 4
+loadBalancing = TRUE
+mpi = FALSE
+batchmode = "0"
+softRestart = TRUE
+softRestartThreshold = 0.01
+testInstancesDir = ""
+testInstancesFile = ""
+testInstances = NULL
+testNbElites = 1
+testIterationElites = FALSE
+elitist = TRUE
+elitistNewInstances = 1
+elitistLimit = 2
+repairConfiguration = NULL
+capping = FALSE
+cappingType = "median"
+boundType = "candidate"
+boundMax = NULL
+boundDigits = 0
+boundPar = 1
+boundAsTimeout = TRUE
+postselection = 0
+aclib = FALSE
+## end of irace scenario
+# --- Parameters Hierarchy ---
+[1] "distrib" "eta"     "rho"     "gamma"   "beta"    "lambda" 
+distrib     eta     rho   gamma    beta  lambda 
+      1       1       1       1       1       1 
+distrib     eta     rho   gamma    beta  lambda 
+     ""      ""      ""      ""      ""      "" 
+  Parameter Level Depends.on
+1   distrib     1           
+2       eta     1           
+3       rho     1           
+4     gamma     1           
+5      beta     1           
+6    lambda     1           
+
+# ------------------------
+# 2020-06-10 06:11:37 BRT: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 4
+# minNbSurvival: 4
+# nbParameters: 6
+# seed: 11235813
+# confidence level: 0.95
+# budget: 1000
+# mu: 5
+# deterministic: FALSE
+
+# 2020-06-10 06:11:37 BRT: Iteration 1 of 4
+# experimentsUsedSoFar: 0
+# remainingBudget: 1000
+# currentBudget: 250
+# nbConfigurations: 41
+# 2020-06-10 06:11:37 BRT: Sample 41 configurations from uniform distribution
+# 2020-06-10 06:11:37 BRT: Launch race
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          1|         41|          7|  -0.8838179653|         41|01:50:11|   NA|  NA|    NA|
+|x|          2|         41|          7|  -0.9026129578|         82|01:50:08|+0.74|0.87|0.3475|
+|x|          3|         41|          7|  -0.8990052092|        123|01:50:09|+0.73|0.82|0.3249|
+|x|          4|         41|         29|  -0.8933288092|        164|01:50:09|+0.74|0.80|0.3010|
+|-|          5|          8|         29|  -0.8880624058|        205|01:50:09|+0.40|0.52|0.5368|
+|-|          6|          4|         29|  -0.8848390961|        213|00:20:02|-0.04|0.13|0.7708|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because number of alive configurations (4) <= minimum number of configurations (4)
+Best-so-far configuration:          29    mean value:   -0.8848390961
+Description of the best-so-far configuration:
+   .ID. distrib eta rho gamma beta lambda .PARENT.
+29   29   0 0 1  10  56    24   10    0.3       NA
+
+# 2020-06-10 15:42:27 BRT: Extracting elites
+# 2020-06-10 15:42:27 BRT: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   .ID.   distrib eta rho gamma    beta lambda .PARENT. .ALIVE. .RANK. .WEIGHT.
+29   29     0 0 1  10  56    24      10   0.30       NA    TRUE     11      0.4
+17   17   2 3 1.5  55   4     3   0.001   0.19       NA    TRUE     15      0.3
+7     7   2 1.5 3  67  14    57 0.00001   0.28       NA    TRUE     17      0.2
+41   41 1 0.5 0.2  51   2   142       1   0.32       NA    TRUE     17      0.1
+# 2020-06-10 15:42:27 BRT: Initialise model
+# 2020-06-10 15:42:27 BRT: End of iteration 1
+# 2020-06-10 15:42:27 BRT: Iteration 2 of 4
+# experimentsUsedSoFar: 213
+# remainingBudget: 787
+# currentBudget: 262
+# nbConfigurations: 40
+# 2020-06-10 15:42:27 BRT: Update model
+# 2020-06-10 15:42:27 BRT: Sample 36 configurations from model
+# 2020-06-10 15:42:27 BRT: Computing similarity of configurations .................. DONE
+# 2020-06-10 15:42:27 BRT: Launch race
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          7|         40|         74|  -0.8824656211|         40|01:40:10|   NA|  NA|    NA|
+|x|          2|         40|         41|  -0.9019513713|         76|01:30:10|+0.25|0.62|0.3891|
+|x|          5|         40|         41|  -0.8900592671|        112|01:30:08|+0.30|0.53|0.5758|
+|x|          3|         40|         41|  -0.8904814512|        148|01:30:13|+0.38|0.54|0.5516|
+|-|          6|         17|         29|  -0.8861645460|        184|01:30:08|+0.04|0.23|0.9849|
+|=|          1|         17|         64|  -0.8851395716|        197|00:40:03|+0.07|0.23|0.9471|
+|=|          4|         17|         29|  -0.8843274841|        210|00:40:03|+0.08|0.21|0.9174|
+|-|          8|         10|         29|  -0.8868131224|        227|00:50:04|+0.04|0.16|0.9230|
+|=|          9|         10|         29|  -0.8849854817|        237|00:30:02|+0.06|0.17|0.8969|
+|=|         10|         10|         29|  -0.8838015681|        247|00:30:02|+0.09|0.18|0.8828|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because tests without elimination (2) >= elitistLimit (2)
+Best-so-far configuration:          29    mean value:   -0.8838015681
+Description of the best-so-far configuration:
+   .ID. distrib eta rho gamma beta lambda .PARENT.
+29   29   0 0 1  10  56    24   10    0.3       NA
+
+# 2020-06-11 02:33:35 BRT: Extracting elites
+# 2020-06-11 02:33:35 BRT: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   .ID. distrib eta rho gamma     beta lambda .PARENT. .ALIVE. .RANK. .WEIGHT.
+29   29   0 0 1  10  56    24       10   0.30       NA    TRUE     35      0.4
+64   64   0 0 1  31  16    28     0.01   0.24       17    TRUE     35      0.3
+77   77   0 0 1  23  40    26 0.000001   0.32       29    TRUE     45      0.2
+48   48   0 0 1  12  88    44       10   0.39       29    TRUE     55      0.1
+# 2020-06-11 02:33:35 BRT: End of iteration 2
+# 2020-06-11 02:33:35 BRT: Iteration 3 of 4
+# experimentsUsedSoFar: 460
+# remainingBudget: 540
+# currentBudget: 270
+# nbConfigurations: 28
+# 2020-06-11 02:33:35 BRT: Update model
+# 2020-06-11 02:33:35 BRT: Sample 24 configurations from model
+# 2020-06-11 02:33:35 BRT: Computing similarity of configurations ................. DONE
+# 2020-06-11 02:33:35 BRT: Launch race
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         11|         28|         82|  -0.9042995237|         28|01:10:05|   NA|  NA|    NA|
+|x|          5|         28|         48|  -0.8854018125|         52|01:00:05|+0.04|0.52|0.8144|
+|x|          7|         28|         98|  -0.8839610439|         76|01:00:05|+0.38|0.59|0.4871|
+|x|          3|         28|         98|  -0.8861834031|        100|01:00:05|+0.47|0.61|0.4161|
+|-|          6|          9|         98|  -0.8827269651|        124|01:00:05|+0.05|0.24|0.8525|
+|=|          4|          9|         98|  -0.8813568303|        129|00:20:01|+0.08|0.23|0.8251|
+|=|         10|          9|         98|  -0.8801823666|        134|00:20:01|+0.04|0.18|0.8697|
+|=|          8|          9|         98|  -0.8831547564|        139|00:20:01|-0.01|0.12|0.8961|
+|=|          1|          9|         64|  -0.8828028270|        144|00:20:01|-0.04|0.08|0.9247|
+|=|          9|          9|         98|  -0.8816530924|        149|00:20:01|-0.04|0.06|0.9160|
+|=|          2|          9|         64|  -0.8847786021|        154|00:20:01|-0.04|0.05|0.9133|
+|=|         12|          9|         82|  -0.8830692648|        163|00:30:03|-0.03|0.06|0.8963|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because tests without elimination (2) >= elitistLimit (2)
+Best-so-far configuration:          82    mean value:   -0.8830692648
+Description of the best-so-far configuration:
+   .ID. distrib eta rho gamma  beta lambda .PARENT.
+82   82   0 0 1  42  23    12 0.001   0.25       64
+
+# 2020-06-11 10:14:17 BRT: Extracting elites
+# 2020-06-11 10:14:17 BRT: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   .ID. distrib eta rho gamma  beta lambda .PARENT. .ALIVE. .RANK. .WEIGHT.
+82   82   0 0 1  42  23    12 0.001   0.25       64    TRUE     51      0.4
+98   98   0 0 1  32  48     3    10   0.39       29    TRUE     52      0.3
+29   29   0 0 1  10  56    24    10   0.30       NA    TRUE     53      0.2
+64   64   0 0 1  31  16    28  0.01   0.24       17    TRUE     53      0.1
+# 2020-06-11 10:14:17 BRT: End of iteration 3
+# 2020-06-11 10:14:17 BRT: Iteration 4 of 4
+# experimentsUsedSoFar: 623
+# remainingBudget: 377
+# currentBudget: 377
+# nbConfigurations: 32
+# 2020-06-11 10:14:17 BRT: Update model
+# 2020-06-11 10:14:17 BRT: Sample 28 configurations from model
+# 2020-06-11 10:14:17 BRT: Computing similarity of configurations ............................ DONE
+# 2020-06-11 10:14:17 BRT: Launch race
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         13|         32|        106|  -0.8932372337|         32|01:20:08|   NA|  NA|    NA|
+|x|         11|         32|        119|  -0.8986735526|         60|01:10:06|+0.14|0.57|0.9221|
+|x|          7|         32|        123|  -0.8947013884|         88|01:10:07|+0.11|0.40|0.6989|
+|x|          4|         32|        123|  -0.8898533365|        116|01:10:07|+0.22|0.42|0.6463|
+|-|          9|         13|        123|  -0.8860647469|        144|01:10:06|+0.12|0.30|0.6352|
+|=|          8|         13|        123|  -0.8890168627|        153|00:30:02|-0.04|0.14|0.8910|
+|=|          6|         13|        123|  -0.8865633315|        162|00:30:02|-0.06|0.09|0.8775|
+|=|          2|         13|        129|  -0.8899529429|        171|00:30:02|-0.07|0.07|0.9488|
+|=|         10|         13|        129|  -0.8880950118|        180|00:30:02|-0.05|0.07|0.9745|
+|=|          3|         13|        129|  -0.8885142838|        189|00:30:02|-0.05|0.05|0.9691|
+|=|          5|         13|        129|  -0.8864292516|        198|00:30:02|-0.04|0.06|0.9367|
+|=|          1|         13|        129|  -0.8862204870|        207|00:30:02|-0.01|0.07|0.9435|
+|=|         12|         13|        129|  -0.8846693409|        216|00:30:02|-0.01|0.07|0.9187|
+|=|         14|         13|        106|  -0.8846297413|        229|00:40:06|-0.01|0.06|0.9291|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because tests without elimination (2) >= elitistLimit (2)
+Best-so-far configuration:         106    mean value:   -0.8846297413
+Description of the best-so-far configuration:
+    .ID. distrib eta rho gamma beta lambda .PARENT.
+106  106   0 0 1  23  45     4   10    0.4       98
+
+# 2020-06-11 20:55:21 BRT: Extracting elites
+# 2020-06-11 20:55:21 BRT: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    .ID. distrib eta rho gamma beta lambda .PARENT. .ALIVE. .RANK. .WEIGHT.
+106  106   0 0 1  23  45     4   10   0.40       98    TRUE     75      0.4
+129  129   0 0 1  42  28    16   10   0.36       98    TRUE     77      0.3
+119  119   0 0 1  29  46    18   10   0.40       98    TRUE     85      0.2
+113  113   0 0 1  24  51     4   10   0.30       29    TRUE     86      0.1
+# 2020-06-11 20:55:21 BRT: End of iteration 4
+# 2020-06-11 20:55:21 BRT: Iteration 5 of 5
+# experimentsUsedSoFar: 852
+# remainingBudget: 148
+# currentBudget: 148
+# nbConfigurations: 13
+# 2020-06-11 20:55:21 BRT: Update model
+# 2020-06-11 20:55:21 BRT: Sample 9 configurations from model
+# 2020-06-11 20:55:21 BRT: Computing similarity of configurations ........... DONE
+# 2020-06-11 20:55:21 BRT: Launch race
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         15|         13|        130|  -0.8734320250|         13|00:40:04|   NA|  NA|    NA|
+|x|          4|         13|        130|  -0.8743498290|         22|00:30:11|+0.16|0.58|0.8499|
+|x|          8|         13|        130|  -0.8843399110|         31|00:30:02|-0.06|0.29|0.9343|
+|x|         11|         13|        130|  -0.8892927206|         40|00:30:02|+0.05|0.29|0.8699|
+|=|         10|         13|        113|  -0.8859776452|         49|00:30:02|+0.01|0.21|0.9334|
+|=|          6|         13|        136|  -0.8831155448|         58|00:30:02|+0.10|0.25|0.8483|
+|-|         13|          8|        130|  -0.8846381770|         67|00:30:02|-0.03|0.11|0.9251|
+|=|         14|          8|        130|  -0.8845304012|         71|00:10:00|-0.02|0.11|0.9090|
+|=|          2|          8|        130|  -0.8886442249|         75|00:10:00|+0.02|0.13|0.8707|
+|=|          7|          8|        130|  -0.8879972078|         79|00:10:01|+0.04|0.13|0.8634|
+|=|          5|          8|        130|  -0.8861203637|         83|00:10:01|+0.04|0.13|0.8608|
+|=|          9|          8|        130|  -0.8846494306|         87|00:10:01|+0.01|0.09|0.8757|
+|=|          1|          8|        130|  -0.8845703059|         91|00:10:00|-0.02|0.06|0.9058|
+|=|          3|          8|        130|  -0.8851370982|         95|00:10:01|-0.00|0.07|0.8865|
+|=|         12|          8|        130|  -0.8838212217|         99|00:10:00|-0.01|0.06|0.8844|
+|=|         16|          8|        130|  -0.8837178646|        107|00:20:02|+0.02|0.08|0.8616|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because tests without elimination (2) >= elitistLimit (2)
+Best-so-far configuration:         130    mean value:   -0.8837178646
+Description of the best-so-far configuration:
+    .ID. distrib eta rho gamma beta lambda .PARENT.
+130  130   0 0 1  48  23    13   10   0.34      129
+
+# 2020-06-12 02:16:00 BRT: Extracting elites
+# 2020-06-12 02:16:00 BRT: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    .ID. distrib eta rho gamma beta lambda .PARENT. .ALIVE. .RANK. .WEIGHT.
+130  130   0 0 1  48  23    13   10   0.34      129    TRUE     59      0.4
+136  136   0 0 1  14  40    15   10   0.45      106    TRUE     60      0.3
+106  106   0 0 1  23  45     4   10   0.40       98    TRUE     64      0.2
+129  129   0 0 1  42  28    16   10   0.36       98    TRUE     67      0.1
+# 2020-06-12 02:16:00 BRT: End of iteration 5
+# 2020-06-12 02:16:00 BRT: Iteration 6 of 6
+# experimentsUsedSoFar: 959
+# remainingBudget: 41
+# currentBudget: 41
+# nbConfigurations: 6
+# 2020-06-12 02:16:00 BRT: Update model
+# 2020-06-12 02:16:00 BRT: Sample 2 configurations from model
+# 2020-06-12 02:16:00 BRT: Computing similarity of configurations ...... DONE
+# 2020-06-12 02:16:00 BRT: Launch race
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         17|          6|        136|  -0.8768323699|          6|00:20:01|   NA|  NA|    NA|
+|x|         15|          6|        136|  -0.8750580797|          8|00:10:00|+0.26|0.63|0.6613|
+|x|         13|          6|        130|  -0.8809440200|         10|00:10:00|-0.09|0.28|0.8299|
+|x|          9|          6|        139|  -0.8783302454|         12|00:10:00|+0.13|0.35|0.7880|
+|=|          1|          6|        129|  -0.8792916618|         14|00:10:00|-0.06|0.15|0.9238|
+|=|          8|          6|        130|  -0.8832070184|         16|00:10:00|-0.08|0.10|0.9341|
+|=|         16|          6|        136|  -0.8831976541|         18|00:10:00|-0.01|0.13|0.8868|
+|=|         10|          6|        136|  -0.8819439079|         20|00:10:00|-0.07|0.07|0.9017|
+|=|          5|          6|        136|  -0.8802190633|         22|00:10:01|-0.03|0.08|0.8868|
+|=|          3|          6|        130|  -0.8814356633|         24|00:10:00|-0.04|0.06|0.8743|
+|=|         14|          6|        136|  -0.8816150051|         26|00:10:00|-0.06|0.04|0.8904|
+|=|         12|          6|        136|  -0.8803508576|         28|00:10:00|-0.07|0.02|0.8863|
+|=|         11|          6|        136|  -0.8821932449|         30|00:10:00|-0.05|0.03|0.8760|
+|=|          2|          6|        136|  -0.8849981634|         32|00:10:00|-0.05|0.03|0.8846|
+|=|          4|          6|        136|  -0.8843195559|         34|00:10:00|-0.06|0.01|0.8866|
+|=|          6|          6|        130|  -0.8833359706|         36|00:10:00|-0.04|0.02|0.8722|
+|=|          7|          6|        136|  -0.8833015975|         38|00:10:00|-0.04|0.02|0.8721|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because experiments for next test (44) > max experiments (41)
+Best-so-far configuration:         136    mean value:   -0.8833015975
+Description of the best-so-far configuration:
+    .ID. distrib eta rho gamma beta lambda .PARENT.
+136  136   0 0 1  14  40    15   10   0.45      106
+
+# 2020-06-12 05:16:16 BRT: Extracting elites
+# 2020-06-12 05:16:16 BRT: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    .ID. distrib eta rho gamma beta lambda .PARENT. .ALIVE. .RANK. .WEIGHT.
+136  136   0 0 1  14  40    15   10   0.45      106    TRUE     53      0.4
+130  130   0 0 1  48  23    13   10   0.34      129    TRUE     55      0.3
+129  129   0 0 1  42  28    16   10   0.36       98    TRUE     61      0.2
+139  139   0 0 1  15  36     8   10   0.41      136    TRUE     61      0.1
+# 2020-06-12 05:16:16 BRT: End of iteration 6
+# 2020-06-12 05:16:16 BRT: Stopped because there is not enough budget left to race more than the minimum (4)
+# You may either increase the budget or set 'minNbSurvival' to a lower value
+# Iteration: 7
+# nbIterations: 7
+# experimentsUsedSoFar: 997
+# timeUsed: 0
+# remainingBudget: 3
+# currentBudget: 3
+# number of elites: 4
+# nbConfigurations: 3
+# Best configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    distrib eta rho gamma beta lambda
+136   0 0 1  14  40    15   10   0.45
+130   0 0 1  48  23    13   10   0.34
+129   0 0 1  42  28    16   10   0.36
+139   0 0 1  15  36     8   10   0.41
+# Best configurations as commandlines (first number is the configuration ID; same order as above):
+136  --distrib 0 0 1 --eta 14 --rho 40 --gamma  15 --beta  10 --lambda 0.45
+130  --distrib 0 0 1 --eta 48 --rho 23 --gamma  13 --beta  10 --lambda 0.34
+129  --distrib 0 0 1 --eta 42 --rho 28 --gamma  16 --beta  10 --lambda 0.36
+139  --distrib 0 0 1 --eta 15 --rho 36 --gamma  8 --beta  10 --lambda 0.41

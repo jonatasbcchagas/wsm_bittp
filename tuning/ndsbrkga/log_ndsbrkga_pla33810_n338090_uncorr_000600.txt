@@ -1,0 +1,438 @@
+#------------------------------------------------------------------------------
+# irace: An implementation in R of (Elitist) Iterated Racing
+# Version: 3.3.2238:2239
+# Copyright (C) 2010-2019
+# Manuel Lopez-Ibanez     <manuel.lopez-ibanez@manchester.ac.uk>
+# Jeremie Dubois-Lacoste  
+# Leslie Perez Caceres    <leslie.perez.caceres@ulb.ac.be>
+#
+# This is free software, and you are welcome to redistribute it under certain
+# conditions.  See the GNU General Public License for details. There is NO
+# WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# irace builds upon previous code from the race package:
+#     race: Racing methods for the selection of the best
+#     Copyright (C) 2003 Mauro Birattari
+#------------------------------------------------------------------------------
+# installed at: /home/marcone/R/x86_64-redhat-linux-gnu-library/3.6/irace
+# called with: 
+Warning: A default scenario file './scenario.txt' has been found and will be read
+# 1 expression(s) specifying forbidden configurations read from '/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/forbidden.txt'
+## irace scenario:
+scenarioFile = "./scenario.txt"
+parameterFile = "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/parameters_ndsbrkga.txt"
+execDir = "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr"
+logFile = "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/log_ndsbrkga_pla33810_n338090_uncorr_000600.Rdata"
+recoveryFile = NULL
+instances = c("/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_01.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_02.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_03.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_04.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_05.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_06.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_07.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_08.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_09.ttp", "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances/pla33810_n338090_uncorr_10.ttp")
+trainInstancesDir = "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/train_instances"
+trainInstancesFile = ""
+configurationsFile = ""
+forbiddenExps = list(<bytecode>)
+forbiddenFile = "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/forbidden.txt"
+targetRunner = "/home/marcone/Modelos/irace_ndsbrkga/tuning_pla33810_n338090_uncorr/target_runner_ndsbrkga.py"
+targetRunnerRetries = 0
+targetRunnerData = ""
+targetRunnerParallel = NULL
+targetEvaluator = NULL
+maxExperiments = 1000
+maxTime = 0
+budgetEstimation = 0.02
+digits = 2
+debugLevel = 1
+nbIterations = 0
+nbExperimentsPerIteration = 0
+sampleInstances = TRUE
+testType = "friedman"
+firstTest = 5
+eachTest = 1
+minNbSurvival = 0
+nbConfigurations = 0
+mu = 5
+confidence = 0.95
+deterministic = FALSE
+seed = 11235813
+parallel = 1
+loadBalancing = TRUE
+mpi = FALSE
+batchmode = "0"
+softRestart = TRUE
+softRestartThreshold = 0.01
+testInstancesDir = ""
+testInstancesFile = ""
+testInstances = NULL
+testNbElites = 1
+testIterationElites = FALSE
+elitist = TRUE
+elitistNewInstances = 1
+elitistLimit = 2
+repairConfiguration = NULL
+capping = FALSE
+cappingType = "median"
+boundType = "candidate"
+boundMax = NULL
+boundDigits = 0
+boundPar = 1
+boundAsTimeout = TRUE
+postselection = 0
+aclib = FALSE
+## end of irace scenario
+# --- Hierarchy vector ---
+# Param : Level
+N : 1
+Ne : 1
+Nm : 1
+rhoe : 1
+alpha : 1
+omega : 1
+tspt : 1
+delta : 1
+# ------------------------
+# 2020-07-15 11:51:09 -03: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 5
+# minNbSurvival: 5
+# nbParameters: 8
+# seed: 11235813
+# confidence level: 0.95
+# budget: 1000
+# mu: 5
+# deterministic: FALSE
+
+# 2020-07-15 11:51:09 -03: Iteration 1 of 5
+# experimentsUsedSoFar: 0
+# remainingBudget: 1000
+# currentBudget: 200
+# nbConfigurations: 33
+# 2020-07-15 11:51:09 -03: Sample 33 configurations from uniform distribution
+# 2020-07-15 11:51:09 -03: Launch race
+  Markers:
+     x No test is performed.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          1|         33|          1|  -0.8649897247|         33|06:16:04|   NA|  NA|    NA|
+|x|          2|         33|         20|  -0.8638357065|         66|06:46:53|+0.37|0.69|0.3018|
+|x|          3|         33|         28|  -0.8733022581|         99|05:58:02|+0.13|0.42|0.6001|
+|x|          4|         33|         28|  -0.8738605369|        132|06:03:20|+0.20|0.40|0.5648|
+|-|          5|         20|         28|  -0.8719434057|        165|06:11:18|-0.02|0.18|0.9724|
+|=|          6|         20|         18|  -0.7277130567|        185|03:41:46|+0.05|0.21|0.9871|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because experiments for next test (205) > max experiments (200)
+Best-so-far configuration:          18    mean value:   -0.7277130567
+Description of the best-so-far configuration:
+   .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT.
+18   18 4466 0.77 0.05 0.59  0.92    88  146 23759       NA
+
+# 2020-07-16 22:48:36 -03: Extracting elites
+# 2020-07-16 22:48:36 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT. .ALIVE. .RANK.           .WEIGHT.
+18   18 4466 0.77 0.05 0.59  0.92    88  146 23759       NA    TRUE   39.5 0.3333333333333333
+1     1 4898 0.58 0.05 0.55  0.56    78  297 31140       NA    TRUE   40.5 0.2666666666666667
+12   12 3496 0.29 0.19 0.72  0.75    60  175 31884       NA    TRUE   42.5 0.2000000000000000
+28   28 4483 0.90 0.08 0.77  0.55    16  180 21934       NA    TRUE   44.0 0.1333333333333333
+4     4 3331 0.16 0.57 0.87  0.36    90  219 21270       NA    TRUE   50.0 0.0666666666666667
+# 2020-07-16 22:48:36 -03: Initialise model
+# 2020-07-16 22:48:36 -03: End of iteration 1
+# 2020-07-16 22:48:36 -03: Iteration 2 of 5
+# experimentsUsedSoFar: 185
+# remainingBudget: 815
+# currentBudget: 203
+# nbConfigurations: 33
+# 2020-07-16 22:48:36 -03: Update model
+# 2020-07-16 22:48:36 -03: Sample 28 configurations from model
+# 2020-07-16 22:48:36 -03: Computing similarity of configurations ................................. DONE
+# 2020-07-16 22:48:36 -03: Launch race
+  Markers:
+     x No test is performed.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          7|         33|         48|  -0.8858750810|         33|05:59:44|   NA|  NA|    NA|
+|x|          5|         33|         50|  -0.8753712798|         61|05:00:30|+0.18|0.59|1.0446|
+|x|          6|         33|         50|  -0.8732218726|         89|05:02:39|+0.44|0.62|0.7675|
+|x|          2|         33|         50|  -0.8690757663|        117|05:25:39|+0.28|0.46|0.7909|
+|-|          3|         18|         52|  -0.8748898520|        145|05:05:27|-0.03|0.17|1.0067|
+|=|          4|         18|         52|  -0.8750191639|        158|02:20:09|-0.00|0.16|1.0007|
+|=|          1|         18|         50|  -0.8728156558|        171|02:21:34|+0.04|0.18|0.9690|
+|=|          8|         18|         50|  -0.8714392951|        189|03:26:19|+0.06|0.18|0.9416|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because experiments for next test (207) > max experiments (203)
+Best-so-far configuration:          50    mean value:   -0.8714392951
+Description of the best-so-far configuration:
+   .ID.    N   Ne  Nm rhoe alpha omega tspt delta .PARENT.
+50   50 4378 0.56 0.2 0.51  0.95    66  265  4144       18
+
+# 2020-07-18 09:30:42 -03: Extracting elites
+# 2020-07-18 09:30:42 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT. .ALIVE. .RANK.           .WEIGHT.
+50   50 4378 0.56 0.20 0.51  0.95    66  265  4144       18    TRUE     43 0.3333333333333333
+34   34 4175 0.47 0.08 0.70  0.93    53  179  3869       18    TRUE     53 0.2666666666666667
+58   58 4646 0.60 0.33 0.54  0.74   100  268 14545        1    TRUE     54 0.2000000000000000
+52   52 4650 0.51 0.28 0.82  0.94    29  156 10200       18    TRUE     57 0.1333333333333333
+57   57 4647 0.47 0.08 0.54  0.68    30  226 23632       18    TRUE     60 0.0666666666666667
+# 2020-07-18 09:30:42 -03: End of iteration 2
+# 2020-07-18 09:30:42 -03: Iteration 3 of 5
+# experimentsUsedSoFar: 374
+# remainingBudget: 626
+# currentBudget: 208
+# nbConfigurations: 27
+# 2020-07-18 09:30:42 -03: Update model
+# 2020-07-18 09:30:42 -03: Sample 22 configurations from model
+# 2020-07-18 09:30:42 -03: Computing similarity of configurations ........................... DONE
+# 2020-07-18 09:30:42 -03: Launch race
+  Markers:
+     x No test is performed.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|          9|         27|         81|  -0.8617567628|         27|04:54:49|   NA|  NA|    NA|
+|x|          7|         27|         50|  -0.8736255209|         49|03:59:41|-0.34|0.33|1.1984|
+|x|          2|         27|         50|  -0.8679628298|         71|03:56:35|-0.14|0.24|1.1047|
+|x|          5|         27|         50|  -0.8672839553|         93|04:00:46|-0.03|0.23|0.9151|
+|=|          4|         27|         50|  -0.8689515097|        115|03:59:13|+0.03|0.22|0.8513|
+|-|          1|         16|         50|  -0.8683134924|        137|03:59:01|-0.01|0.16|0.9265|
+|=|          3|         16|         50|  -0.8717917638|        148|01:58:37|+0.03|0.17|0.9938|
+|=|          8|         16|         50|  -0.8705433896|        159|01:58:23|+0.08|0.19|0.9228|
+|-|          6|          7|         50|  -0.8703633528|        170|01:58:57|+0.12|0.22|0.8696|
+|-|         10|          2|         50|  -0.8696079523|        177|01:15:44|+0.29|0.36|0.3556|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because number of alive configurations (2) <= minimum number of configurations (5)
+Best-so-far configuration:          50    mean value:   -0.8696079523
+Description of the best-so-far configuration:
+   .ID.    N   Ne  Nm rhoe alpha omega tspt delta .PARENT.
+50   50 4378 0.56 0.2 0.51  0.95    66  265  4144       18
+
+# 2020-07-19 17:32:34 -03: Extracting elites
+# 2020-07-19 17:32:34 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+   .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT. .ALIVE. .RANK.          .WEIGHT.
+50   50 4378 0.56 0.20 0.51  0.95    66  265  4144       18    TRUE     12 0.666666666666667
+81   81 3918 0.49 0.08 0.51  0.97    36  259 19711       57    TRUE     18 0.333333333333333
+# 2020-07-19 17:32:34 -03: End of iteration 3
+# 2020-07-19 17:32:34 -03: Iteration 4 of 5
+# experimentsUsedSoFar: 551
+# remainingBudget: 449
+# currentBudget: 224
+# nbConfigurations: 22
+# 2020-07-19 17:32:34 -03: Update model
+# 2020-07-19 17:32:34 -03: Sample 20 configurations from model
+# 2020-07-19 17:32:34 -03: Computing similarity of configurations ...................... DONE
+# 2020-07-19 17:32:34 -03: Launch race
+  Markers:
+     x No test is performed.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         11|         22|        103|  -0.8625150793|         22|03:57:31|   NA|  NA|    NA|
+|x|          3|         22|        103|  -0.8779322778|         42|03:35:00|+0.37|0.68|1.2388|
+|x|          1|         22|        100|  -0.8736092441|         62|03:36:14|+0.39|0.60|1.0463|
+|x|          8|         22|        103|  -0.8706927489|         82|03:36:17|+0.34|0.51|0.9380|
+|-|          2|          9|        103|  -0.8678833976|        102|03:40:34|+0.07|0.26|0.9547|
+|=|          6|          9|        103|  -0.8680727333|        109|01:15:51|+0.05|0.21|0.9396|
+|=|          5|          9|         50|  -0.8675001381|        116|01:16:38|+0.13|0.25|0.8803|
+|-|         10|          5|        103|  -0.8670580985|        123|01:16:54|+0.06|0.17|0.7692|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because number of alive configurations (5) <= minimum number of configurations (5)
+Best-so-far configuration:          50    mean value:   -0.8689257349
+Description of the best-so-far configuration:
+   .ID.    N   Ne  Nm rhoe alpha omega tspt delta .PARENT.
+50   50 4378 0.56 0.2 0.51  0.95    66  265  4144       18
+
+# 2020-07-20 15:47:37 -03: Extracting elites
+# 2020-07-20 15:47:37 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT. .ALIVE. .RANK.           .WEIGHT.
+50    50 4378 0.56 0.20 0.51  0.95    66  265  4144       18    TRUE     13 0.3333333333333333
+81    81 3918 0.49 0.08 0.51  0.97    36  259 19711       57    TRUE     20 0.2666666666666667
+103  103 4947 0.50 0.43 0.69  0.98    59  299   532       50    TRUE     33 0.2000000000000000
+86    86 4416 0.54 0.34 0.54  0.99    74  294 14907       50    TRUE     34 0.1333333333333333
+100  100 3490 0.32 0.26 0.64  0.87    34  287 17654       81    TRUE     41 0.0666666666666667
+# 2020-07-20 15:47:37 -03: End of iteration 4
+# 2020-07-20 15:47:37 -03: Iteration 5 of 5
+# experimentsUsedSoFar: 674
+# remainingBudget: 326
+# currentBudget: 326
+# nbConfigurations: 31
+# 2020-07-20 15:47:37 -03: Update model
+# 2020-07-20 15:47:37 -03: Sample 26 configurations from model
+# 2020-07-20 15:47:37 -03: Computing similarity of configurations ............................... DONE
+# 2020-07-20 15:47:37 -03: Launch race
+  Markers:
+     x No test is performed.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         12|         31|        103|  -0.8646925876|         31|05:35:10|   NA|  NA|    NA|
+|x|          1|         31|        114|  -0.8649105469|         57|04:42:16|+0.12|0.56|0.9610|
+|x|          2|         31|        114|  -0.8621547478|         83|04:44:58|+0.36|0.57|0.8353|
+|x|          3|         31|        114|  -0.8700541773|        109|04:39:14|+0.35|0.51|0.8003|
+|-|          4|         15|        114|  -0.8711698600|        138|05:13:36|+0.18|0.34|0.9917|
+|-|         11|          9|        114|  -0.8697269600|        148|01:49:48|+0.38|0.49|0.6045|
+|-|          6|          8|        114|  -0.8696347312|        152|00:43:46|+0.31|0.41|0.6588|
+|!|          9|          8|        114|  -0.8686468169|        158|01:06:26|+0.24|0.34|0.6908|
+|!|          7|          8|        114|  -0.8704587486|        164|01:04:48|+0.21|0.30|0.7621|
+|-|          8|          7|        114|  -0.8695938259|        167|00:33:03|+0.24|0.32|0.6787|
+|!|         10|          7|        127|  -0.8689289802|        169|00:22:07|+0.29|0.36|0.6369|
+|-|          5|          5|        127|  -0.8686160038|        171|00:21:35|-0.00|0.08|0.7905|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because number of alive configurations (5) <= minimum number of configurations (5)
+Best-so-far configuration:         103    mean value:   -0.8686233062
+Description of the best-so-far configuration:
+    .ID.    N  Ne   Nm rhoe alpha omega tspt delta .PARENT.
+103  103 4947 0.5 0.43 0.69  0.98    59  299   532       50
+
+# 2020-07-21 22:44:31 -03: Extracting elites
+# 2020-07-21 22:44:31 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT. .ALIVE. .RANK.           .WEIGHT.
+103  103 4947 0.50 0.43 0.69  0.98    59  299   532       50    TRUE     31 0.3333333333333333
+127  127 4967 0.37 0.35 0.69  0.95    62  280  5425      103    TRUE     31 0.2666666666666667
+114  114 4927 0.63 0.31 0.62  0.97    58  293  8694      103    TRUE     35 0.2000000000000000
+50    50 4378 0.56 0.20 0.51  0.95    66  265  4144       18    TRUE     40 0.1333333333333333
+81    81 3918 0.49 0.08 0.51  0.97    36  259 19711       57    TRUE     43 0.0666666666666667
+# 2020-07-21 22:44:31 -03: End of iteration 5
+# 2020-07-21 22:44:31 -03: Iteration 6 of 6
+# experimentsUsedSoFar: 845
+# remainingBudget: 155
+# currentBudget: 155
+# nbConfigurations: 16
+# 2020-07-21 22:44:31 -03: Update model
+# 2020-07-21 22:44:31 -03: Sample 11 configurations from model
+# 2020-07-21 22:44:31 -03: Computing similarity of configurations ................ DONE
+# 2020-07-21 22:44:31 -03: Launch race
+  Markers:
+     x No test is performed.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         13|         16|        127|  -0.8958161431|         16|02:52:41|   NA|  NA|    NA|
+|x|          1|         16|        127|  -0.8804899569|         27|01:59:36|+0.62|0.81|0.5047|
+|x|          4|         16|        127|  -0.8788715234|         38|01:59:21|+0.72|0.81|0.4217|
+|x|          3|         16|        127|  -0.8824835725|         49|01:59:06|+0.73|0.79|0.4118|
+|-|          6|          9|        127|  -0.8798043717|         60|01:58:48|+0.29|0.43|0.6790|
+|-|         10|          6|        127|  -0.8769788477|         64|00:44:09|+0.42|0.52|0.5330|
+|=|          7|          6|        127|  -0.8781085672|         65|00:10:42|+0.12|0.24|0.7726|
+|=|         11|          6|        127|  -0.8761530753|         66|00:10:58|+0.15|0.26|0.7071|
+|!|          8|          6|        127|  -0.8745607727|         67|00:11:15|+0.22|0.31|0.6550|
+|!|          2|          6|        127|  -0.8727700560|         68|00:10:58|+0.27|0.35|0.6084|
+|!|         12|          6|        127|  -0.8720269434|         69|00:10:44|+0.23|0.30|0.6101|
+|!|          9|          6|        127|  -0.8711695771|         70|00:11:20|+0.13|0.21|0.7215|
+|=|          5|          6|        103|  -0.8707150216|         71|00:10:42|+0.06|0.13|0.7945|
+|=|         14|          6|        127|  -0.8700871187|         77|01:05:25|+0.04|0.11|0.8188|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because tests without elimination (2) >= elitistLimit (2)
+Best-so-far configuration:         127    mean value:   -0.8700871187
+Description of the best-so-far configuration:
+    .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT.
+127  127 4967 0.37 0.35 0.69  0.95    62  280  5425      103
+
+# 2020-07-22 12:40:24 -03: Extracting elites
+# 2020-07-22 12:40:24 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT. .ALIVE. .RANK.           .WEIGHT.
+127  127 4967 0.37 0.35 0.69  0.95    62  280  5425      103    TRUE     37 0.3333333333333333
+103  103 4947 0.50 0.43 0.69  0.98    59  299   532       50    TRUE     41 0.2666666666666667
+114  114 4927 0.63 0.31 0.62  0.97    58  293  8694      103    TRUE     50 0.2000000000000000
+139  139 4669 0.42 0.43 0.66  0.99    73  299  1538      103    TRUE     50 0.1333333333333333
+50    50 4378 0.56 0.20 0.51  0.95    66  265  4144       18    TRUE     56 0.0666666666666667
+# 2020-07-22 12:40:24 -03: End of iteration 6
+# 2020-07-22 12:40:24 -03: Iteration 7 of 7
+# experimentsUsedSoFar: 922
+# remainingBudget: 78
+# currentBudget: 78
+# nbConfigurations: 9
+# 2020-07-22 12:40:24 -03: Update model
+# 2020-07-22 12:40:24 -03: Sample 4 configurations from model
+# 2020-07-22 12:40:24 -03: Computing similarity of configurations ......... DONE
+# 2020-07-22 12:40:24 -03: Launch race
+  Markers:
+     x No test is performed.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . All alive configurations are elite and nothing is discarded
+
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+|x|         15|          9|        141|  -0.8595770140|          9|01:39:13|   NA|  NA|    NA|
+|x|          7|          9|        141|  -0.8725287679|         13|00:44:06|+0.48|0.74|0.4523|
+|x|         12|          9|        143|  -0.8698943068|         17|00:43:35|+0.34|0.56|0.8855|
+|x|          5|          9|        143|  -0.8687341563|         21|00:43:36|+0.48|0.61|0.7453|
+|-|          9|          7|        143|  -0.8673415477|         25|00:44:21|+0.11|0.29|0.8124|
+|=|         10|          7|        143|  -0.8665860682|         27|00:22:01|-0.05|0.12|0.9364|
+|=|          8|          7|        143|  -0.8659033449|         29|00:21:52|-0.07|0.08|0.9399|
+|=|         13|          7|        103|  -0.8695742374|         31|00:22:27|-0.07|0.07|0.9242|
+|=|          4|          7|        141|  -0.8702983450|         33|00:22:09|-0.02|0.09|0.8791|
+|=|          6|          7|        141|  -0.8701771307|         35|00:22:00|+0.03|0.12|0.8321|
+|=|          2|          7|        127|  -0.8688940284|         37|00:22:20|+0.05|0.14|0.7929|
+|=|          1|          7|        127|  -0.8685831736|         39|00:22:03|+0.04|0.12|0.7968|
+|=|         11|          7|        127|  -0.8681125166|         41|00:22:24|+0.05|0.12|0.7808|
+|=|          3|          7|        127|  -0.8699130311|         43|00:22:30|+0.06|0.13|0.7601|
+|=|         14|          7|        127|  -0.8693862606|         45|00:22:21|+0.06|0.12|0.7841|
+|-|         16|          4|        127|  -0.8702831906|         52|01:16:20|+0.05|0.10|0.7289|
++-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
+# Stopped because number of alive configurations (4) <= minimum number of configurations (5)
+Best-so-far configuration:         127    mean value:   -0.8702831906
+Description of the best-so-far configuration:
+    .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT.
+127  127 4967 0.37 0.35 0.69  0.95    62  280  5425      103
+
+# 2020-07-22 22:13:49 -03: Extracting elites
+# 2020-07-22 22:13:49 -03: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+    .ID.    N   Ne   Nm rhoe alpha omega tspt delta .PARENT. .ALIVE. .RANK. .WEIGHT.
+127  127 4967 0.37 0.35 0.69  0.95    62  280  5425      103    TRUE     32      0.4
+141  141 4971 0.35 0.30 0.70  0.92    71  274  7676      127    TRUE     37      0.3
+143  143 4773 0.57 0.10 0.51  0.90    74  263  3784       50    TRUE     45      0.2
+103  103 4947 0.50 0.43 0.69  0.98    59  299   532       50    TRUE     46      0.1
+# 2020-07-22 22:13:49 -03: End of iteration 7
+# 2020-07-22 22:13:49 -03: Stopped because there is not enough budget left to race more than the minimum (5)
+# You may either increase the budget or set 'minNbSurvival' to a lower value
+# Iteration: 8
+# nbIterations: 8
+# experimentsUsedSoFar: 974
+# timeUsed: 0
+# remainingBudget: 26
+# currentBudget: 26
+# number of elites: 4
+# nbConfigurations: 5
+# Best configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+       N   Ne   Nm rhoe alpha omega tspt delta
+127 4967 0.37 0.35 0.69  0.95    62  280  5425
+141 4971 0.35 0.30 0.70  0.92    71  274  7676
+143 4773 0.57 0.10 0.51  0.90    74  263  3784
+103 4947 0.50 0.43 0.69  0.98    59  299   532
+# Best configurations as commandlines (first number is the configuration ID; same order as above):
+127  --N 4967 --N_e 0.37 --N_m 0.35 --rho_e  0.69 --alpha  0.95 --omega 62 --tsp_t 280 --kp_delta 5425
+141  --N 4971 --N_e 0.35 --N_m 0.3 --rho_e  0.7 --alpha  0.92 --omega 71 --tsp_t 274 --kp_delta 7676
+143  --N 4773 --N_e 0.57 --N_m 0.1 --rho_e  0.51 --alpha  0.9 --omega 74 --tsp_t 263 --kp_delta 3784
+103  --N 4947 --N_e 0.5 --N_m 0.43 --rho_e  0.69 --alpha  0.98 --omega 59 --tsp_t 299 --kp_delta 532
