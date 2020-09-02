@@ -29,7 +29,7 @@ public class BITTPAlgorithm {
     private static double[] scores = null;
     private static double[][] sortData = null;
     
-    private static int[] solveTPSLinKernighanHeuristic() {
+    private static int[] solveTSPLinKernighanHeuristic() {
         
         int[] tour = new int[instance.numberOfNodes + 1];
 
@@ -269,7 +269,7 @@ public class BITTPAlgorithm {
 
             if (System.currentTimeMillis() - BITTPAlgorithm.startTime >= BITTPAlgorithm.timeLimit * 1000.0) break;
             
-            int[] tour = BITTPAlgorithm.solveTPSLinKernighanHeuristic();
+            int[] tour = BITTPAlgorithm.solveTSPLinKernighanHeuristic();
                         
             for(int k = 0; k < eta; ++k) {
                 if (System.currentTimeMillis() - BITTPAlgorithm.startTime >= BITTPAlgorithm.timeLimit * 1000.0) break;                
