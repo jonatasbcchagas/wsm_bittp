@@ -46,7 +46,7 @@ public class Main {
 
         Locale.setDefault(new Locale("en", "US"));
 
-        //if (args.length == 0) usage();
+        if (args.length == 0) usage();
         
         String inputFileName = null, outputFileName = null;
 
@@ -57,10 +57,6 @@ public class Main {
         
         int checkParameters = 0;
         
-        inputFileName = "/home/jonatas/Downloads/ttp_components/ttp_instances/eil51-ttp/eil51_n50_bounded-strongly-corr_01.ttp";
-        outputFileName = "a.sol";
-        checkParameters = 2;
-
         try {
             for (int i = 0; i < args.length; i += 2) {
                 if (args[i].equals("--inputfile") || args[i].equals("-i")) {

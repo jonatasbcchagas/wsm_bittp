@@ -293,7 +293,7 @@ public class BITTPAlgorithm {
             
             TTPSolution.alpha = Math.max(0.0, Math.min(randomDistribution.sample(), 1.0));
                     
-            BITTPAlgorithm.pareto.getBestSolutionForTheNewWeightSumScore();
+            s = BITTPAlgorithm.pareto.getBestSolutionForTheNewWeightSumScore();
             
             BITTPAlgorithm.generateNewTTPSolutionsFromTwoOptMoves(s, avgEdgeLength, beta);
             
