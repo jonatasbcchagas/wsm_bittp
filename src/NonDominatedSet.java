@@ -38,7 +38,7 @@ public class NonDominatedSet {
         return true;
     }
 
-    public void add(TTPSolution s1) {
+    public double add(TTPSolution s1) {
 
         boolean isAdded = true;
 
@@ -53,6 +53,8 @@ public class NonDominatedSet {
         }
 
         if (isAdded) this.solutions.add(s1);
+        
+        return s1.singleObjectiveScore;
     }
 
     public TTPSolution getBestSolutionForTheNewWeightSumScore() {

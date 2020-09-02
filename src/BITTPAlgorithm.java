@@ -1,11 +1,15 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import org.apache.commons.math3.distribution.AbstractRealDistribution;
 import org.apache.commons.math3.distribution.BetaDistribution;
@@ -237,7 +241,7 @@ public class BITTPAlgorithm {
         return packingPlanBest;
     }
 
-    public static void solve(int probabilityDistribution, double v1, double v2, int eta, int rho, int gamma, double beta, double lambda, int timeLimit, long seed, String outputFileName, boolean doNotSaveF, boolean doNotSaveX, boolean doNotSaveTTPSol) {
+    public static void solve(int probabilityDistribution, double v1, double v2, int eta, int rho, int gamma, double beta, double lambda, int timeLimit, long seed, String outputFileName, boolean doNotSaveF, boolean doNotSaveX, boolean doNotSaveTTPSol, boolean doNotSaveTTPLog) {
 
         BITTPAlgorithm.instance = TTPInstance.getInstance();
 
@@ -264,6 +268,9 @@ public class BITTPAlgorithm {
         BITTPAlgorithm.sortData = new double[instance.numberOfItems][2];
         
         TTPSolution s = null;
+        
+        List<double[]> bestTTPScoresOverTime = new ArrayList<>();
+        double bestTTPScore = -987654321.0;
 
         while (true) {
 
@@ -275,14 +282,18 @@ public class BITTPAlgorithm {
                 if (System.currentTimeMillis() - BITTPAlgorithm.startTime >= BITTPAlgorithm.timeLimit * 1000.0) break;                
                 TTPSolution.alpha = Math.max(0.0, Math.min(randomDistribution.sample(), 1.0));                                
                 boolean[] packingPlan = BITTPAlgorithm.randomizedPackingAlgorithm(tour, rho, gamma);
-                BITTPAlgorithm.pareto.add(new TTPSolution((k == 0) ? tour : tour.clone(), packingPlan));
+                double currentTTPScore = BITTPAlgorithm.pareto.add(new TTPSolution((k == 0) ? tour : tour.clone(), packingPlan));
+                if(currentTTPScore > bestTTPScore) {
+                    bestTTPScore = currentTTPScore;
+                    bestTTPScoresOverTime.add(new double[]{bestTTPScore, (System.currentTimeMillis() - BITTPAlgorithm.startTime) / 1000.0});
+                }
             }
             
             if (beta == -987654321 && lambda <= 10E-5) continue; 
             
             TTPSolution.alpha = Math.max(0.0, Math.min(randomDistribution.sample(), 1.0));
                     
-            s = BITTPAlgorithm.pareto.getBestSolutionForTheNewWeightSumScore();
+            BITTPAlgorithm.pareto.getBestSolutionForTheNewWeightSumScore();
             
             BITTPAlgorithm.generateNewTTPSolutionsFromTwoOptMoves(s, avgEdgeLength, beta);
             
@@ -291,5 +302,20 @@ public class BITTPAlgorithm {
 
         BITTPAlgorithm.pareto.saveNDSBITTPSolutions(outputFileName, doNotSaveF, doNotSaveX);
         if(!doNotSaveTTPSol) BITTPAlgorithm.pareto.saveBestTTPSolution(outputFileName);
+        
+        if(!doNotSaveTTPLog) {
+            BufferedWriter writerTTPLog;
+            try {
+                writerTTPLog = new BufferedWriter(new FileWriter(outputFileName + ".ttp.log", false));                           
+                for (Iterator<double[]> it = bestTTPScoresOverTime.iterator(); it.hasNext();) {
+                    double [] scoreAndRuntime = it.next();                
+                    writerTTPLog.write(String.format("%.5f %.5f\n", scoreAndRuntime[0], scoreAndRuntime[1]));
+                }
+                writerTTPLog.flush();
+                writerTTPLog.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } 
+        }
     }
 }

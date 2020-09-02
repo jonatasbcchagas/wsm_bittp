@@ -24,9 +24,11 @@ public class Main {
         System.out.println("            --outputfile <output_file>               or     -o <output_file>                (<output_file> + \".bittp.f\" stores the non-dominated solutions (time and profit)");
         System.out.println("                                                                                             <output_file> + \".bittp.x\" stores the non-dominated solutions (tours and packing plans)");
         System.out.println("                                                                                             <output_file> + \".ttp.sol\" stores the best TTP solution found)");
+        System.out.println("                                                                                             <output_file> + \".ttp.log\" stores the best TTP score found over the runtime)");
         System.out.println("            --donotsavef                                                                    (do not save <output_file> + \".bittp.f\")");
         System.out.println("            --donotsavex                                                                    (do not save <output_file> + \".bittp.x\")");
         System.out.println("            --donotsavettpsol                                                               (do not save <output_file> + \".ttp.sol\")");
+        System.out.println("            --donotsavettplog                                                               (do not save <output_file> + \".ttp.log\")");
         System.out.println();
         System.out.println("default values:");
         System.out.println("                    prob_distrib         0  (v1=0, v2=1)");
@@ -44,16 +46,20 @@ public class Main {
 
         Locale.setDefault(new Locale("en", "US"));
 
-        if (args.length == 0) usage();
+        //if (args.length == 0) usage();
         
         String inputFileName = null, outputFileName = null;
 
         double v1 = 0.0, v2 = 1.0, lambda = 0.0, beta = -987654321.0;
         int probDistrib = 0, eta = 10, rho = 1, gamma = 10, runtime = 600;
         long randomSeed = 11235813;
-        boolean doNotSaveF = false, doNotSaveX = false, doNotSaveTTPSol = false;
+        boolean doNotSaveF = false, doNotSaveX = false, doNotSaveTTPSol = false, doNotSaveTTPLog = false;
         
         int checkParameters = 0;
+        
+        inputFileName = "/home/jonatas/Downloads/ttp_components/ttp_instances/eil51-ttp/eil51_n50_bounded-strongly-corr_01.ttp";
+        outputFileName = "a.sol";
+        checkParameters = 2;
 
         try {
             for (int i = 0; i < args.length; i += 2) {
@@ -100,6 +106,7 @@ public class Main {
                 else if (args[i].equals("--donotsavef")) { doNotSaveF = true; i -= 1; }
                 else if (args[i].equals("--donotsavex")) { doNotSaveX = true; i -= 1; }
                 else if (args[i].equals("--donotsavettpsol")) { doNotSaveTTPSol = true; i -= 1; }
+                else if (args[i].equals("--donotsavettplog")) { doNotSaveTTPLog = true; i -= 1; }                
                 else { checkParameters = -1; break; }
             }
         } catch (NumberFormatException e) {
@@ -115,6 +122,6 @@ public class Main {
 
         TTPInstance.getInstance().readTTPInstance(inputFileName);
         
-        BITTPAlgorithm.solve(probDistrib, v1, v2, eta, rho, gamma, beta, lambda, runtime, randomSeed, outputFileName, doNotSaveF, doNotSaveX, doNotSaveTTPSol);
+        BITTPAlgorithm.solve(probDistrib, v1, v2, eta, rho, gamma, beta, lambda, runtime, randomSeed, outputFileName, doNotSaveF, doNotSaveX, doNotSaveTTPSol, doNotSaveTTPLog);
     }
 }
